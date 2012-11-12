@@ -1,7 +1,7 @@
 Summary:	Unicode character map
 Name:		gucharmap
 Version:	3.6.0
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.6/%{name}-%{version}.tar.xz
@@ -86,8 +86,8 @@ rm -rf $RPM_BUILD_ROOT
 %scrollkeeper_update_postun
 %update_gsettings_cache
 
-%post	libs -p /sbin/ldconfig
-%postun	libs -p /sbin/ldconfig
+%post	libs -p /usr/sbin/ldconfig
+%postun	libs -p /usr/sbin/ldconfig
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
