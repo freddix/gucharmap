@@ -1,11 +1,11 @@
 Summary:	Unicode character map
 Name:		gucharmap
-Version:	3.6.1
+Version:	3.8.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.6/%{name}-%{version}.tar.xz
-# Source0-md5:	a0e0cdf05a0db8a66b2da35b4f8b7f6e
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.8/%{name}-%{version}.tar.xz
+# Source0-md5:	7de9ed943a81cc6a62dfbe6e52cbc6ef
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -17,7 +17,6 @@ BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
 Requires(post,postun):	glib-gio-gsettings
-Requires(post,postun):	rarian
 Requires:	%{name}-libs = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -58,7 +57,6 @@ sed -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
 %{__automake}
 %{__autoconf}
 %configure \
-	--disable-scrollkeeper	\
 	--disable-silent-rules	\
 	--disable-static	\
 	--enable-introspection	\
@@ -73,17 +71,15 @@ rm -rf $RPM_BUILD_ROOT
 
 rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,en@shaw}
 
-%find_lang %{name} --with-gnome --with-omf
+%find_lang %{name} --with-gnome
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%scrollkeeper_update_post
 %update_gsettings_cache
 
 %postun
-%scrollkeeper_update_postun
 %update_gsettings_cache
 
 %post	libs -p /usr/sbin/ldconfig
