@@ -1,11 +1,11 @@
 Summary:	Unicode character map
 Name:		gucharmap
-Version:	3.8.0
+Version:	3.8.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
 Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	7de9ed943a81cc6a62dfbe6e52cbc6ef
+# Source0-md5:	ffb657c57ae9eb6e5e41948d864721ff
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
