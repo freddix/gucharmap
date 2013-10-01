@@ -1,18 +1,18 @@
 Summary:	Unicode character map
 Name:		gucharmap
-Version:	3.8.2
+Version:	3.9.99
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.8/%{name}-%{version}.tar.xz
-# Source0-md5:	ffb657c57ae9eb6e5e41948d864721ff
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.9/%{name}-%{version}.tar.xz
+# Source0-md5:	c01b1dd794a3cfe6889bcfd67c1b8cdf
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-doc-utils
-BuildRequires:	gobject-introspection-devel
-BuildRequires:	gtk+3-devel
+BuildRequires:	gobject-introspection-devel >= 1.38.0
+BuildRequires:	gtk+3-devel >= 3.10.0
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
@@ -43,7 +43,7 @@ need to use gucharmap.
 %setup -q
 
 # kill gnome common deps
-sed -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
+%{__sed} -i -e 's/GNOME_COMPILE_WARNINGS.*//g'	\
     -i -e 's/GNOME_MAINTAINER_MODE_DEFINES//g'	\
     -i -e 's/GNOME_COMMON_INIT//g'		\
     -i -e 's/GNOME_CXX_WARNINGS.*//g'		\
