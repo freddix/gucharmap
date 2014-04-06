@@ -1,18 +1,17 @@
 Summary:	Unicode character map
 Name:		gucharmap
-Version:	3.9.99
+Version:	3.12.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.9/%{name}-%{version}.tar.xz
-# Source0-md5:	c01b1dd794a3cfe6889bcfd67c1b8cdf
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.12/%{name}-%{version}.tar.xz
+# Source0-md5:	008d144ac4f160ac4cc328bb7e48bc29
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-doc-utils
-BuildRequires:	gobject-introspection-devel >= 1.38.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	gobject-introspection-devel >= 1.40.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	intltool
 BuildRequires:	libtool
 BuildRequires:	pkg-config
@@ -52,7 +51,6 @@ need to use gucharmap.
 %build
 %{__libtoolize}
 %{__intltoolize}
-%{__gnome_doc_prepare}
 %{__aclocal } -I m4
 %{__automake}
 %{__autoconf}
@@ -69,7 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -rf $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,en@shaw}
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/{ca@valencia,en@shaw}
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
 
 %find_lang %{name} --with-gnome
 
