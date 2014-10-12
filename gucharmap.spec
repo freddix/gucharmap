@@ -1,11 +1,11 @@
 Summary:	Unicode character map
 Name:		gucharmap
-Version:	3.12.0
+Version:	3.14.0
 Release:	1
 License:	GPL v2
 Group:		X11/Applications
-Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	008d144ac4f160ac4cc328bb7e48bc29
+Source0:	http://ftp.gnome.org/pub/gnome/sources/gucharmap/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	d5c61b424d84d56b6212b253372c80db
 URL:		http://www.gnome.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -55,6 +55,7 @@ need to use gucharmap.
 %{__automake}
 %{__autoconf}
 %configure \
+	APPDATA_VALIDATE=/usr/bin/true	\
 	--disable-silent-rules	\
 	--disable-static	\
 	--enable-introspection	\
